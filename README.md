@@ -1,6 +1,6 @@
 # 수면 건강 체크 — Variant A
 
-배포 URL: 배포 후 기록 예정
+배포 URL: Vercel CLI 인증 불가로 아래 대체 배포 절차를 사용해야 합니다.
 
 STOP-BANG 선별검사 직후 예약 요청으로 연결되는 A/B 테스트용 목업입니다. 실제 의료 서비스가 아니며 데이터베이스, 실제 예약, 결제 기능은 없습니다.
 
@@ -66,3 +66,15 @@ Variant A는 결과 화면에서 교육 콘텐츠, 치료법·합병증 설명, 
 - 시/도 선택지는 대한민국의 17개 광역자치단체를 사용했습니다.
 - 예약 요청 정보는 목업 상태로만 처리하며 저장하거나 전송하지 않습니다.
 - 결과의 진단 안내는 명세의 범위 안에서 두 문장으로 구성했습니다.
+
+## Vercel 대체 배포 절차
+
+현재 실행 환경에는 Vercel 인증 정보가 없어 CLI 배포를 완료할 수 없었습니다. 저장소는 GitHub의 `https://github.com/lythean1004/stopbang_AB_1`에 푸시되어 있습니다.
+
+1. [Vercel 대시보드](https://vercel.com/new)에 로그인합니다.
+2. **Import Git Repository**에서 `lythean1004/stopbang_AB_1`을 선택합니다.
+3. Project Name을 `stopbang-ab-1`로 지정합니다.
+4. Framework Preset은 **Next.js**, Root Directory는 저장소 루트로 둡니다.
+5. Environment Variables에 `NEXT_PUBLIC_VARIANT` = `A`를 추가합니다.
+6. **Deploy**를 선택합니다.
+7. 배포가 끝나면 이 README의 최상단 배포 URL을 실제 Production URL로 교체합니다.
