@@ -1,0 +1,3 @@
+"use client";
+import { useEffect } from "react"; import { useRouter } from "next/navigation"; import { useStore } from "@/lib/store";
+export function RouteGuard({kind,children}:{kind:"quiz"|"result"|"request"|"done";children:React.ReactNode}){const s=useStore(),r=useRouter();useEffect(()=>{if(!s.ready)return;const demo=new URLSearchParams(window.location.search).get("demo")==="1";if(demo&&!s.quizComplete){s.hydrateDemo();return}if(kind!=="quiz"&&!s.quizComplete)r.replace("/");else if(kind==="done"&&!s.requestComplete&&!demo)r.replace("/")},[s.ready,s.quizComplete,s.requestComplete,kind,r,s]);if(!s.ready)return null;return <>{children}</>}
